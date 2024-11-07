@@ -1,14 +1,14 @@
-package com.example.notioapps;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.notioapps.MainActivity;
+import com.example.notioapps.R;
 
 public class SubActivity1 extends AppCompatActivity {
 
@@ -17,17 +17,18 @@ public class SubActivity1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_sub1);
+
+        // "back1" ボタンがクリックされたときの処理
+        findViewById(R.id.back1).setOnClickListener(v -> {
+            Intent intent = new Intent(SubActivity1.this, MainActivity.class);
+            startActivity(intent);
+        });
+
+        // ウィンドウインセットの適用
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-    }
-
-    public void onClick(View v) {
-        if (v.getId() == R.id.back1) {
-            Intent intent = new Intent(SubActivity1.this, MainActivity.class);
-            startActivity(intent);
-        }
     }
 }

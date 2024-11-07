@@ -12,18 +12,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Notioapps"
         tools:targetApi="31">
+
+        <!-- SubActivity1 -->
         <activity
             android:name=".SubActivity1"
             android:exported="false" />
+
+        <!-- MainActivity (アプリ起動時に表示されるアクティビティ) -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- MemoActivity (新しいメモを追加したり、編集するアクティビティ) -->
+        <activity
+            android:name=".MemoActivity"
+            android:exported="true" />
+
     </application>
 
 </manifest>
