@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MemoActivity">
 
+    <!-- メモ内容入力 EditText -->
     <EditText
         android:id="@+id/memoEditText"
         android:layout_width="0dp"
@@ -16,12 +17,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5" />
 
+    <!-- 保存ボタン -->
     <Button
         android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="保存"
         app:layout_constraintTop_toBottomOf="@id/memoEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- 音声入力ボタン -->
+    <Button
+        android:id="@+id/voiceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="音声で入力"
+        app:layout_constraintTop_toBottomOf="@id/saveButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
