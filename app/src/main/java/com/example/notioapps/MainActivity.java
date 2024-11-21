@@ -20,12 +20,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // DBHelper を初期化
         dbHelper = new DBHelper(this);
 
         // メモのリストを取得
         memoList = dbHelper.getAllMemos();
 
-        // RecyclerView と Adapter の設定
+        // RecyclerView の設定
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         memoAdapter = new MemoAdapter(this, memoList);
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         // 「追加」ボタンの設定
         Button addButton = findViewById(R.id.add);
         addButton.setOnClickListener(v -> {
+            // MemoActivity を開始
             startActivity(new Intent(MainActivity.this, MemoActivity.class));
         });
     }
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         // メモのリストを更新
         memoList.clear();
-        memoList.addAll(dbHelper.getAllMemos());
-        memoAdapter.notifyDataSetChanged();
+        memoList.addAll(dbHelper.getAllMemos()); // DBからメモを再取得
+        memoAdapter.notifyDataSetChanged(); // アダプターに変更を通知
     }
 }

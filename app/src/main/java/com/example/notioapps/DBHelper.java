@@ -1,13 +1,10 @@
 package com.example.notioapps;
 
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import com.example.notioapps.ListItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +43,8 @@ public class DBHelper extends SQLiteOpenHelper {
             do {
                 long id = cursor.getLong(0);
                 String title = cursor.getString(1);
-                memoList.add(new ListItem(id, title));
+                String content = cursor.getString(2);  // 内容も取得
+                memoList.add(new ListItem(id, title, content));  // ListItem に content を渡す
             } while (cursor.moveToNext());
         }
 
@@ -78,4 +76,3 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
     }
 }
-
