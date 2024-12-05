@@ -12,7 +12,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
     private MemoAdapter memoAdapter;
     private List<ListItem> memoList;
     private DBHelper dbHelper;
@@ -26,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         memoList = new ArrayList<>();
         memoList.addAll(dbHelper.getAllMemos());
 
-        recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         memoAdapter = new MemoAdapter(this, memoList);
         recyclerView.setAdapter(memoAdapter);
