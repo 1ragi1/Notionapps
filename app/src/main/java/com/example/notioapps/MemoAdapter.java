@@ -7,14 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.MemoViewHolder> {
 
-    private Context context;
-    private List<ListItem> memoList;
-    private DBHelper dbHelper;
+    private final Context context;
+    private final List<ListItem> memoList;
+    private final DBHelper dbHelper;
 
     public MemoAdapter(Context context, List<ListItem> memoList) {
         this.context = context;
@@ -22,8 +24,9 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.MemoViewHolder
         dbHelper = new DBHelper(context);
     }
 
+    @NonNull
     @Override
-    public MemoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MemoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
         return new MemoViewHolder(view);
     }
@@ -56,7 +59,7 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.MemoViewHolder
         return memoList.size();
     }
 
-    public class MemoViewHolder extends RecyclerView.ViewHolder {
+    public static class MemoViewHolder extends RecyclerView.ViewHolder {
         TextView titleTextView;
         Button deleteButton;
 

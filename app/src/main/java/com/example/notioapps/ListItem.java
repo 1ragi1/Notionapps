@@ -1,8 +1,8 @@
 package com.example.notioapps;
 
 public class ListItem {
-    private long id;
-    private String title;
+    private final long id;
+    private final String title;
 
     public ListItem(long id, String title) {
         this.id = id;
