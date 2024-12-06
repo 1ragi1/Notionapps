@@ -69,6 +69,8 @@ public class DBHelper extends SQLiteOpenHelper {
         return id;
     }
 
+
+    //idでデータの指定および保存・消去など
     public void deleteMemo(long memoId) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete("memos", "id = ?", new String[]{String.valueOf(memoId)});

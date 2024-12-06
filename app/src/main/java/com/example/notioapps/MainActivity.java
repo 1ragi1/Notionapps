@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private MemoAdapter memoAdapter;
     private List<ListItem> memoList;
     private DBHelper dbHelper;
+    private VoicevoxPlayer voicevoxPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
