@@ -6,9 +6,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import com.example.notioapps.ListItem;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,6 +69,8 @@ public class DBHelper extends SQLiteOpenHelper {
         return id;
     }
 
+
+    //idでデータの指定および保存・消去など
     public void deleteMemo(long memoId) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete("memos", "id = ?", new String[]{String.valueOf(memoId)});
