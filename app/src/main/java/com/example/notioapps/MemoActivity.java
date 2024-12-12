@@ -68,7 +68,7 @@ public class MemoActivity extends AppCompatActivity {
     private void startVoiceRecognition() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.JAPANESE.toString()); // 日本語を指定
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "ja-JP"); // 日本語を指定（ja-JP）
         intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "音声を入力");
         resultLauncher.launch(intent);
     }
