@@ -29,7 +29,7 @@
 
     <!-- 音声入力ボタン -->
     <Button
-        android:id="@+id/voiceButton"
+        android:id="@+id/button_listen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="音声入力"
